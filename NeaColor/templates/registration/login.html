@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {%block content%}
+
+<div class="containter">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Ingresa tus datos</h2>
+                    <hr>
+                    <form action="" method="post">
+
+                        {% csrf_token %}
+                        {{form | crispy}}
+
+                        <input type="submit" value="ingresar" class="btn btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

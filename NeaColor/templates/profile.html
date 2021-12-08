@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="site-sectino">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-m-12">
+                <h2 class="text-black">Tu perfil</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ request.user.email }}</h5>
+                        <a href="{% url 'account_logout' %}"><small class="float-right">Cerrar Sesion</small></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
