@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+p{
+    font: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+.titulop h3{
+    font-size: 23px;
+}
+.precio{
+    font-size: 33px;
+    font-weight: 352;
+}
+.unidad{
+    font-size: 17px;
+    color: #B9BDBA;
+}
+.border{
+    border-radius: 15px;
+}
+.elcolor{
+    font-weight: 630;
+}
+.unidad_seleccionada{
+    font-weight: 630;
+}
+.unidad_disponible{
+    font-size: 13px;
+    color: #B9BDBA;
+}
+.oferta span{
+    color: #00A650;
+    font-weight: 630;
+}
+.comentario_usuario{
+    display: table;
+    height: 30px;
+    width: 500px;
+}
+.comentario_usuario textarea {
+	resize: none;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+}
+.respuesta{
+    color: #818181;
+}
+.producto-img{
+    height: 427px;
+}

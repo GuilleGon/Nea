@@ -12,5 +12,8 @@ urlpatterns = [
     path('registro/usuario/', views.RegistroConsumidorFinal.as_view(), name='registroUsuario'),
     path('registro/empresa/', views.RegistroEmpresa.as_view(), name='registroEmpresa'),
     path('contacto/', views.Contacto.as_view(), name='contacto'),
-    path('nosotros/',views.Nosotros.as_view(), name='nosotros')
+    path('nosotros/',views.Nosotros.as_view(), name='nosotros'),
+    path('blog/', views.Blog.as_view(), name='blog'),
+    path('producto/', views.Producto.as_view(), name="producto")
+
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

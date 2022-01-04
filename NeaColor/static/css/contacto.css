@@ -1,0 +1,43 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+div a{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+div p{
+    text-align: center;
+    line-height: 20px;
+}
+div a p{
+    line-height: 20px;
+}
+.titulo{
+    text-align: center;
+}
+
+.ubicacion{
+    text-align: start;
+    /*color: #818181;*/
+    font-size: 17px;
+}
+.caja{
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px 2px rgb(0, 0, 0, .5);
+ 
+}
+.whatsapp:hover{
+    color: green;
+}
+.instagram:hover{
+    color: darkviolet;
+}
