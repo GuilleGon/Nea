@@ -140,13 +140,13 @@ a {
     background: transparent; }
   .site-navbar .site-navbar-top {
     border-bottom: 1px solid #f3f3f4;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-bottom: 0px; }
     @media (min-width: 768px) {
       .site-navbar .site-navbar-top {
-        padding-top: 40px;
-        padding-bottom: 40px; } }
+        padding-top: 15px;
+        padding-bottom: 15px; } }
   .site-navbar .site-search-icon a span {
     display: inline-block;
     margin-right: 10px; }

@@ -14,7 +14,6 @@ Inicio
 
 {% block content %}
 
-
 <div class="body container">
     <div class="row">
         <div class="filtros container-sm col-3">
@@ -94,7 +93,7 @@ Inicio
                 </h2>
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                     aria-labelledby="panelsStayOpen-headingThree">
-                    <div class="accordion-body" >
+                    <div class="accordion-body">
                         <ul class="list-group">
                             <li class="">
                                 <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
@@ -119,75 +118,31 @@ Inicio
         </div>
         <div class="productos container col-9">
             <div class="row">
+
+                {% for producto in object_list %}
                 <container class="producto col-4">
-                    <div class="cardproducto">
-                        <img src="{% static 'images/frentes.jpg' %}" />
-                        <div class="titulo_producto">
-                            <h4>
-                                Frente Elastomerico 20lts
-                                <br>San Agustín
-                            </h4>
-                        </div>
-                        <div class="stock_content">
-                            <p class="stock">
-                                10 En Stock
-                            </p>
-                        </div>
-                        <div class="price_action">
-                            <div class="oferta">
-                                <span class="price">$2400</span><span class="price_text">antes</span>
-                            </div>
-                            <div class="contado">
-                                <span class="price">$1900</span><span class="price_text">CONTADO</span>
-                            </div>
-                            <button type="button" class="btn btn-success">Agregar al Carrito</button>
-                        </div>
-                    </div>
-                </container>
-                <container class="producto col-4">
-                    <img src="../static/images/premium.jpg">
+                    <img src="{{ producto.image }}" class="img-fluid" alt=""/>
+
                     <div class="titulo_producto">
                         <h4>
-                            Látex Premium Interior 20lts<br>San Agustín
+                            {{ producto.nombre }}
                         </h4>
                     </div>
                     <div class="stock_content">
                         <p class="stock">
-                            10 En Stock
+                            {{ producto.stock }} en stock
                         </p>
                     </div>
-                    <div class="price_action">
-                        <div class="oferta">
-                            <span class="price">$2400</span><span class="price_text">antes</span>
-                        </div>
-                        <div class="contado">
-                            <span class="price">$1900</span><span class="price_text">CONTADO</span>
-                        </div>
-                        <button type="button" class="btn btn-success">Agregar al Carrito</button>
+                    <div class="oferta">
+                        <span class="price">${{producto.precio}}</span><span class="price_text">antes</span>
                     </div>
+                    <div class="contado">
+                        <span class="price">${{producto.precio}}</span><span class="price_text">CONTADO</span>
+                    </div>
+                    <button type="button" class="btn btn-success">Agregar al Carrito</button>
                 </container>
-                <container class="producto col-4">
-                    <img src="../static/images/plus.jpg" alt="">
-                    <div class="titulo_producto">
-                        <h4>
-                            Látex Acrílico Plus Interior-Exterior 20lts San Agustín
-                        </h4>
-                    </div>
-                    <div class="stock_content">
-                        <p class="stock">
-                            10 En Stock
-                        </p>
-                    </div>
-                    <div class="price_action">
-                        <div class="oferta">
-                            <span class="price">$2400</span><span class="price_text">antes</span>
-                        </div>
-                        <div class="contado">
-                            <span class="price">$1900</span><span class="price_text">CONTADO</span>
-                        </div>
-                        <button type="button" class="btn btn-success">Agregar al Carrito</button>
-                    </div>
-                </container>
+                {% endfor %}
+
             </div>
             <hr>
             <div class="row">
