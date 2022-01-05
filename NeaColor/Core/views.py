@@ -7,11 +7,9 @@ from .forms import ConsumidorSignUp, EmpresaSignUp
 from django.views.generic import CreateView
 from cart.models import Producto
 
-
-class HomeView(generic.ListView):
+class Index(generic.ListView):
     template_name = 'index.html'
     queryset = Producto.objects.all()
-
 
 class Nosotros(generic.TemplateView):
     template_name = 'nosotros.html'
@@ -21,10 +19,6 @@ class Contacto(generic.TemplateView):
 
 class Blog(generic.TemplateView):
     template_name = 'blogs.html'
-
-class Producto(generic.TemplateView):
-    template_name = 'producto.html'
-
 
 class RegistroConsumidorFinal(CreateView):
     model = User

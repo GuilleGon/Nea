@@ -1,9 +1,8 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
-from django.contrib.auth import get_user_model
 from django.db.models.expressions import Case
 from django.db.models.fields import FloatField
-
+from django.shortcuts import reverse
 from Core.models import User
 
 
@@ -28,6 +27,7 @@ class Direccion(models.Model):
 class Producto(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=150)
+    slug = models.SlugField(unique=True)
     descripcion = models.TextField()
     image = models.ImageField(upload_to='producto_images')
     stock = models.IntegerField()
@@ -36,6 +36,9 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+
+    def get_absolute_url(self):
+        return reverse("cart:producto", kwargs={'slug': self.slug})
 
 
 class OrderItem(models.Model):

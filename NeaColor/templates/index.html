@@ -121,24 +121,26 @@ Inicio
 
                 {% for producto in object_list %}
                 <container class="producto col-4">
-                    <img src="{{ producto.image }}" class="img-fluid" alt=""/>
+                    <a href="{{ producto.get_absolute_url }}" style="text-decoration: none; color: black;">
+                        <img src="{{ producto.image.url }}" class="img-fluid" alt="" />
 
-                    <div class="titulo_producto">
-                        <h4>
-                            {{ producto.nombre }}
-                        </h4>
-                    </div>
-                    <div class="stock_content">
-                        <p class="stock">
-                            {{ producto.stock }} en stock
-                        </p>
-                    </div>
-                    <div class="oferta">
-                        <span class="price">${{producto.precio}}</span><span class="price_text">antes</span>
-                    </div>
-                    <div class="contado">
-                        <span class="price">${{producto.precio}}</span><span class="price_text">CONTADO</span>
-                    </div>
+                        <div class="titulo_producto">
+                            <h4>
+                                {{ producto.nombre }}
+                            </h4>
+                        </div>
+                        <div class="stock_content">
+                            <p class="stock">
+                                {{ producto.stock }} en stock
+                            </p>
+                        </div>
+                        <div class="oferta">
+                            <span class="price">${{producto.precio}}</span><span class="price_text">antes</span>
+                        </div>
+                        <div class="contado">
+                            <span class="price">${{producto.precio}}</span><span class="price_text">CONTADO</span>
+                        </div>
+                    </a>
                     <button type="button" class="btn btn-success">Agregar al Carrito</button>
                 </container>
                 {% endfor %}
@@ -168,126 +170,124 @@ Inicio
                         <button type="button" class="btn btn-success">Agregar al Carrito</button>
                     </div>
                 </container>
-                <container class="producto col-4"  >
-                    <a href="{% url 'producto' %}" style="text-decoration: none; color: black">
-                    <img src="../static/images/texturado.jpg" alt="">
-                    <div class="titulo_producto">
-                        <h4>
-                            Revoque Plastico Texturado Rugo 30Kg San Agustín
-                        </h4>
-                    </div>
-                    <div class="stock_content">
-                        <p class="stock">
-                            10 En Stock
-                        </p>
-                    </div>
-                    <div class="price_action">
-                        <div class="oferta">
-                            <span class="price">$2400</span><span class="price_text">antes</span>
-                        </div>
-                        <div class="contado">
-                            <span class="price">$1900</span><span class="price_text">CONTADO</span>
-                        </div>
-                    </a>
-                        <button type="button" class="btn btn-success">Agregar al Carrito</button>
-                    </div>
-                </container>
                 <container class="producto col-4">
-                    <img src="../static/images/frentes.jpg" alt="">
-                    <div class="titulo_producto">
-                        <h4>
-                            Frente Elastomerico 20lts
-                            <br>San Agustín
-                        </h4>
-                    </div>
-                    <div class="stock_content">
-                        <p class="stock">
-                            10 En Stock
-                        </p>
-                    </div>
-                    <div class="price_action">
-                        <div class="oferta">
-                            <span class="price">$2400</span><span class="price_text">antes</span>
+                        <img src="../static/images/texturado.jpg" alt="">
+                        <div class="titulo_producto">
+                            <h4>
+                                Revoque Plastico Texturado Rugo 30Kg San Agustín
+                            </h4>
                         </div>
-                        <div class="contado">
-                            <span class="price">$1900</span><span class="price_text">CONTADO</span>
+                        <div class="stock_content">
+                            <p class="stock">
+                                10 En Stock
+                            </p>
                         </div>
-                        <button type="button" class="btn btn-success">Agregar al Carrito</button>
-                    </div>
-                </container>
+                        <div class="price_action">
+                            <div class="oferta">
+                                <span class="price">$2400</span><span class="price_text">antes</span>
+                            </div>
+                            <div class="contado">
+                                <span class="price">$1900</span><span class="price_text">CONTADO</span>
+                            </div>
+                    <button type="button" class="btn btn-success">Agregar al Carrito</button>
             </div>
-            <hr>
-            <div class="row">
-                <container class="producto col-4">
-                    <img src="../static/images/frentes.jpg" alt="">
-                    <div class="titulo_producto">
-                        <h4>
-                            Frente Elastomerico 20lts
-                            <br>San Agustín
-                        </h4>
+            </container>
+            <container class="producto col-4">
+                <img src="../static/images/frentes.jpg" alt="">
+                <div class="titulo_producto">
+                    <h4>
+                        Frente Elastomerico 20lts
+                        <br>San Agustín
+                    </h4>
+                </div>
+                <div class="stock_content">
+                    <p class="stock">
+                        10 En Stock
+                    </p>
+                </div>
+                <div class="price_action">
+                    <div class="oferta">
+                        <span class="price">$2400</span><span class="price_text">antes</span>
                     </div>
-                    <div class="stock_content">
-                        <p class="stock">
-                            10 En Stock
-                        </p>
+                    <div class="contado">
+                        <span class="price">$1900</span><span class="price_text">CONTADO</span>
                     </div>
-                    <div class="price_action">
-                        <div class="oferta">
-                            <span class="price">$2400</span><span class="price_text">antes</span>
-                        </div>
-                        <div class="contado">
-                            <span class="price">$1900</span><span class="price_text">CONTADO</span>
-                        </div>
-                        <button type="button" class="btn btn-success">Agregar al Carrito</button>
+                    <button type="button" class="btn btn-success">Agregar al Carrito</button>
+                </div>
+            </container>
+        </div>
+        <hr>
+        <div class="row">
+            <container class="producto col-4">
+                <img src="../static/images/frentes.jpg" alt="">
+                <div class="titulo_producto">
+                    <h4>
+                        Frente Elastomerico 20lts
+                        <br>San Agustín
+                    </h4>
+                </div>
+                <div class="stock_content">
+                    <p class="stock">
+                        10 En Stock
+                    </p>
+                </div>
+                <div class="price_action">
+                    <div class="oferta">
+                        <span class="price">$2400</span><span class="price_text">antes</span>
                     </div>
-                </container>
-                <container class="producto col-4">
-                    <img src="../static/images/premium.jpg" alt="">
-                    <div class="titulo_producto">
-                        <h4>
-                            Látex Premium Interior 20lts<br>San Agustín
-                        </h4>
+                    <div class="contado">
+                        <span class="price">$1900</span><span class="price_text">CONTADO</span>
                     </div>
-                    <div class="stock_content">
-                        <p class="stock">
-                            10 En Stock
-                        </p>
+                    <button type="button" class="btn btn-success">Agregar al Carrito</button>
+                </div>
+            </container>
+            <container class="producto col-4">
+                <img src="../static/images/premium.jpg" alt="">
+                <div class="titulo_producto">
+                    <h4>
+                        Látex Premium Interior 20lts<br>San Agustín
+                    </h4>
+                </div>
+                <div class="stock_content">
+                    <p class="stock">
+                        10 En Stock
+                    </p>
+                </div>
+                <div class="price_action">
+                    <div class="oferta">
+                        <span class="price">$2400</span><span class="price_text">antes</span>
                     </div>
-                    <div class="price_action">
-                        <div class="oferta">
-                            <span class="price">$2400</span><span class="price_text">antes</span>
-                        </div>
-                        <div class="contado">
-                            <span class="price">$1900</span><span class="price_text">CONTADO</span>
-                        </div>
-                        <button type="button" class="btn btn-success">Agregar al Carrito</button>
+                    <div class="contado">
+                        <span class="price">$1900</span><span class="price_text">CONTADO</span>
                     </div>
-                </container>
-                <container class="producto col-4">
-                    <img src="../static/images/plus.jpg" alt="">
-                    <div class="titulo_producto">
-                        <h4>
-                            Látex Acrílico Plus Interior-Exterior 20lts San Agustín
-                        </h4>
+                    <button type="button" class="btn btn-success">Agregar al Carrito</button>
+                </div>
+            </container>
+            <container class="producto col-4">
+                <img src="../static/images/plus.jpg" alt="">
+                <div class="titulo_producto">
+                    <h4>
+                        Látex Acrílico Plus Interior-Exterior 20lts San Agustín
+                    </h4>
+                </div>
+                <div class="stock_content">
+                    <p class="stock">
+                        10 En Stock
+                    </p>
+                </div>
+                <div class="price_action">
+                    <div class="oferta">
+                        <span class="price">$2400</span><span class="price_text">antes</span>
                     </div>
-                    <div class="stock_content">
-                        <p class="stock">
-                            10 En Stock
-                        </p>
+                    <div class="contado">
+                        <span class="price">$1900</span><span class="price_text">CONTADO</span>
                     </div>
-                    <div class="price_action">
-                        <div class="oferta">
-                            <span class="price">$2400</span><span class="price_text">antes</span>
-                        </div>
-                        <div class="contado">
-                            <span class="price">$1900</span><span class="price_text">CONTADO</span>
-                        </div>
-                        <button type="button" class="btn btn-success">Agregar al Carrito</button>
-                    </div>
-                </container>
-            </div>
+                    <button type="button" class="btn btn-success">Agregar al Carrito</button>
+                </div>
+            </container>
         </div>
     </div>
+</div>
 </div>
 <div class="container">
     <div class="row justify-content-center">

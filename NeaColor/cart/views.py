@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from .models import Producto
+from django.views import generic
 
-# Create your views here.
+
+class Producto(generic.DetailView):
+    template_name = 'producto.html'
+    queryset = Producto.objects.all()
