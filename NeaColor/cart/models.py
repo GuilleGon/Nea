@@ -36,6 +36,7 @@ class Producto(models.Model):
     modelo = models.CharField(max_length=150)
     peso_neto = models.CharField(max_length=150)
     unidad_venta = models.CharField(max_length=150)
+    oferta = models.FloatField()
 
 
 

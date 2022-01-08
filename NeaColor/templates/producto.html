@@ -22,10 +22,10 @@
                 </div>
                 <div class="container col-4 ms-1 my-4 p-4 derecha border">
                     <div class="titulop mb-4">
-                        <h3>Revoque Plastico Texturado San Agustin Rugo X30 Kg</h3>
+                        <h3> {{ producto.nombre }} </h3>
                     </div>
                     <div class="mb-4">
-                        <span class="precio">$ 9860</span><span class="unidad">/unidad</span>
+                        <span class="precio">$ {{ producto.precio }} </span><span class="unidad">/unidad</span>
                     </div>
                     <div class="colores mb-4">
                         <span class="color">Color: </span><span class="elcolor">Blanco</span>
@@ -37,10 +37,10 @@
                                 <span class="unidad_seleccionada mx-2"> 9 </span>
                                 <button type="button" class="mx-1 btn btn-success">+</button>
                               </div>
-                        <span class="unidad_disponible">(11 disponible)</span>
+                        <span class="unidad_disponible">( {{ producto.stock }} disponible )</span>
                     </div>
                     <div class="oferta my-1 text-center">
-                        <span class="strong">30% de descuento al contado</span>
+                        <span class="strong"> {{ producto.oferta }}% de descuento al contado</span>
                     </div>
                     <div class="d-grid gap-2 col mx-auto mt-5">
                         <button type="button" class="btn btn-success">COMPRAR</button>
@@ -63,11 +63,11 @@
                 </tr>
                 <tr>
                   <th scope="row">Peso neto</th>
-                  <td>30kg</td>
+                  <td> {{ producto.peso_neto }} </td>
                 </tr>
                 <tr>
                   <th scope="row">Unidad de venta</th>
-                  <td>Unidad</td>
+                  <td> {{ producto.unidad_venta }} </td>
                 </tr>
               </tbody>
             </table>
@@ -75,43 +75,7 @@
         <hr>
         <div class="container col-8 descripcion row justify-content-start" style="font-size: 18px; font-family:Arial, Helvetica, sans-serif;">
             <h3 style="font-size: 32px;"><strong>Descripción</strong></h3>
-            <p>Es un producto formulado a base de copolímeros acrílicos elastoméricos, con un balance adecuado de cargas inertes,
-            logrando así un revestimiento plástico, que reúne las siguientes propiedades: es flexible, lavable, impermeable,
-            antihongo, de excelente rendimiento y durabilidad. Capaz de proteger y decorar superficies interiores y exteriores.
-            Al aplicar Rugo se evita el uso de fijador, sellador, enduido y hasta revoque fino. Se obtiene una película 20 veces
-            más cubritiva y resistente que un látex debido al espesor de la capa, también tapa fisuras viejas y previene la aparición
-            de nuevas, ofreciendo además innumerables alternativas estéticas. A diferencia de los revoques cementicios, posee
-            la propiedad de acompañar los movimientos naturales de las estructuras edilicias. <br>
-            PRESENTACION<br>
-            Envases de 6 / 30 kilos<br>
-            VARIEDADES<br>
-            Rugo Fino (Blanco)<br>
-            Rugo Mediano Fácil (Blanco / Jacarandá / Paris / Lactuca / Cycas / Taxus / Sorbus / Prunus / Yucca)<br>
-            Rugo Mediano Llana (Blanco)<br>
-            Rugo Grueso (Blanco)<br>
-            USOS<br>
-            • Aplicable sobre cemento, yeso, revoque, ladrillo a la vista, bloques, etc.<br>
-            • Para interior y exterior.<br>
-            PREPARACION DE LA SUPERFICIE<br>
-            • La superficie deberá estar limpia, seca, firme y libre de grasitud o polvo.<br>
-            • Las imperfecciones de la pared no necesitan tratarse previamente, porque al aplicar RUGO se disimulan defectos.<br>
-            APLICACION<br>
-            • Aplicable con llana, rodillo, espátula o soplete.<br>
-            • Podrá diluirse hasta un 30% con agua, según el utensilio elegido.<br>
-            RENDIMIENTO<br>
-            TABLA DE RENDIMIENTO SEGUN METODO DE APLICACION* (kg por m2)<br>
-            * El rendimiento del producto puede variar según la rugosidad y absorción del sustrato.<br>
-            Se catalogan a continuación los sustratos en función del consumo, de menor a mayor :<br>
-            1 fibrocemento 6 ladrillo cerámico<br>
-            2 revoque fino 7 grueso alisado<br>
-            3 yeso 8 ladrillo común<br>
-            4 durlock 9 ladrillo block<br>
-            5 maderas en general 10 revoque grueso<br>
-            RECOMENDACIONES GENERALES<br>
-            • Revolver bien antes de usar.<br>
-            • Evitar pintar en condiciones climáticas extremas.<br>
-            • Almacenar en lugar fresco y seco.<br>
-            • Mantener fuera del alcance de los niños.</p>
+            <p> {{ producto.descripcion }} </p>
         </div>
         <hr>
         <div class="container col-8 row justify-content-start">
