@@ -32,7 +32,13 @@ class Producto(models.Model):
     image = models.ImageField(upload_to='producto_images')
     stock = models.IntegerField()
     precio = models.FloatField()
-    especificacion = models.CharField(max_length=255)
+    marca = models.CharField(max_length=150)
+    modelo = models.CharField(max_length=150)
+    peso_neto = models.CharField(max_length=150)
+    unidad_venta = models.CharField(max_length=150)
+    oferta = models.FloatField()
+
+
 
     def __str__(self):
         return self.nombre
