@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'Core.User'
 
 LOGIN_REDIRECT_URL = '/'
