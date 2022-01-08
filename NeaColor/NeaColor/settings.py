@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 AUTH_USER_MODEL = 'Core.User'
 
 LOGIN_REDIRECT_URL = '/'
@@ -72,7 +72,7 @@ DATABASES = {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'nea',
             'USER': 'root',
-            'PASSWORD': 'root',
+            'PASSWORD': '357159',
             'HOST': 'localhost',
             'PORT': '3306',
         }
