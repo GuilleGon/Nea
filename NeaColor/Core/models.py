@@ -46,7 +46,7 @@ class User(AbstractUser):
     is_cempresa = models.BooleanField(default=False)
     is_email_verified = models.BooleanField(default=False)
     
-    cuit = models.CharField(null=True, blank=True)
+    cuit = models.CharField(null=True, blank=True, max_length=11)
     domicilio = models.CharField(max_length=100, null=True, blank=True)
     codigoPostal = models.IntegerField(null=True, blank=True)
     telefono = models.CharField(max_length=20)
