@@ -11,6 +11,12 @@ class Index(generic.ListView):
     template_name = 'index.html'
     queryset = Producto.objects.all()
 
+class Historial(generic.TemplateView):
+    template_name = 'historial.html'
+
+class CarritoView(generic.TemplateView):
+    template_name = 'carrito.html'
+
 class Nosotros(generic.TemplateView):
     template_name = 'nosotros.html'
 

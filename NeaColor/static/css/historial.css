@@ -1,0 +1,39 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.encabezado{
+    text-align: center;
+}
+img{
+    width: 100px; 
+    height: 100px; 
+}
+.precio{
+    text-align: center;
+}
+.cantidad{
+    text-align: center;
+}
+.total_Producto{
+    text-align: center;
+}
+.descuento{
+    font-size: 14px;
+    color: green;
+}
+.total{
+    padding-right: 26px;
+    font-size: 14px;
+    color: grey;
+}
+.totales{
+    font-size: 15px;
+    font-weight:bold;
+    color: black;
+}
+.totales-text{
+    font-size: 17px;
+}
