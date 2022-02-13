@@ -23,8 +23,11 @@ class Nosotros(generic.TemplateView):
 class Contacto(generic.TemplateView):
     template_name = 'contacto.html'
 
-class Blog(generic.TemplateView):
+class Blogs(generic.TemplateView):
     template_name = 'blogs.html'
+
+class Blog(generic.TemplateView):
+    template_name = 'blog.html'
 
 class RegistroConsumidorFinal(CreateView):
     model = User

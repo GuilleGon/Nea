@@ -7,38 +7,6 @@
     <title>Nea - {% block head_title %}{% endblock %}</title>
     {% block extra_head %}
 
-
-    <style type="text/css">
-        #menu ul ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #eee;
-            padding: 0;
-        }
-
-        /* items del menu desplegable */
-
-        #menu ul ul li {
-            float: none;
-            width: 150px
-        }
-
-        /* enlaces de los items del menu desplegable */
-
-        #menu ul ul a {
-            line-height: 120%;
-            padding: 10px 15px;
-        }
-
-        /* items del menu desplegable al pasar el ratón */
-
-        #menu ul li:hover>ul {
-            display: block;
-        }
-    </style>
-
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> {% endblock %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
