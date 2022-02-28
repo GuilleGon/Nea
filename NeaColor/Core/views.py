@@ -11,14 +11,23 @@ class Index(generic.ListView):
     template_name = 'index.html'
     queryset = Producto.objects.all()
 
+class Historial(generic.TemplateView):
+    template_name = 'historial.html'
+
+class CarritoView(generic.TemplateView):
+    template_name = 'carrito.html'
+
 class Nosotros(generic.TemplateView):
     template_name = 'nosotros.html'
 
 class Contacto(generic.TemplateView):
     template_name = 'contacto.html'
 
-class Blog(generic.TemplateView):
+class Blogs(generic.TemplateView):
     template_name = 'blogs.html'
+
+class Blog(generic.TemplateView):
+    template_name = 'blog.html'
 
 class RegistroConsumidorFinal(CreateView):
     model = User

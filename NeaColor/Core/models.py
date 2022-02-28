@@ -36,7 +36,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    
+    id = models.AutoField(primary_key=True)
     objects = UserManager()
     username = None
     email = models.EmailField(_('email address'), unique=True)

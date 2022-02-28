@@ -1,0 +1,11 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+img{
+    justify-content: center;
+    max-width: 80%; 
+    height: auto; 
+}
