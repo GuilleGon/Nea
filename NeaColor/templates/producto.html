@@ -14,135 +14,118 @@ Inicio
 {% endblock %}
 
 {% block content %}
-
-
-<div class="container">
     <div class="container">
-        <div class="row ">
-            <div class="container mx-1 col-6">
-                <img class="producto-img" src="{{ producto.image.url }}" class="img-fluid" alt="">
-            </div>
-            <div class="container col-4 ms-1 my-4 p-4 derecha border">
-                <div class="titulop mb-4">
-                    <h3> {{ producto.nombre }} </h3>
+        <div class="container">
+            <div class="row ">
+                <div class="container mx-1 col-sm-12 col-md-6">
+                    <img class="producto-img" src="{{ producto.image.url }}" class="img-fluid" alt="">
                 </div>
-                <div class="mb-4">
-                    <span class="precio">$ {{ producto.precio }} </span><span class="unidad">/unidad</span>
-                </div>
-                <div class="colores mb-4">
-                    <span class="color">Color: </span><span class="elcolor">Blanco</span>
-                </div>  
-
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <span class="unidad_disponible">( {{ producto.stock }} disponible )</span>
-
-                    <div class="d-grid gap-2 col mx-auto mt-5">
-                        <button type="submit" class="btn btn-success">Añadir al carrito</button>
+                <div class="container col-sm-12 col-md-4 ms-1 my-4 p-4 derecha border">
+                    <div class="titulop mb-4">
+                        <h3>{{ producto.nombre }} </h3>
                     </div>
-                </form>
+                    <div class="mb-4">
+                        <span class="precio">$ {{ producto.precio }} </span><span class="unidad">/unidad</span>
+                    </div>
+                    <div class="colores mb-4">
+                        <span class="color">Color: </span><span class="elcolor">Blanco</span>
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <span class="unidad_disponible">( {{ producto.stock }} disponible )</span>
+    
+                        <div class="d-grid gap-2 col mx-auto mt-5">
+                            <button type="submit" class="btn btn-success">Añadir al carrito</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <hr>
-    <div class="container col-6 especificaciones row justify-content-start">
-        <h3>Especificaciones</h3>
-        <table class="table ">
-            <tbody>
-                <tr>
-                    <th scope="row">Marca</th>
-                    <td>{{ producto.marca }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Modelo</th>
-                    <td>{{ producto.modelo }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Peso neto</th>
-                    <td> {{ producto.peso_neto }} </td>
-                </tr>
-                <tr>
-                    <th scope="row">Unidad de venta</th>
-                    <td> {{ producto.unidad_venta }} </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    
-
-    <hr>
-    <div class="container col-8 descripcion row justify-content-start"
+        <hr>
+        <div class="container col-sm-12 col-md-6 especificaciones row justify-content-start">
+            <h3>Especificaciones</h3>
+            <table class="table ">
+                <tbody>
+                    <tr>
+                        <th scope="row">Marca</th>
+                        <td>{{ producto.marca }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Modelo</th>
+                        <td>{{ producto.modelo }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Peso neto</th>
+                        <td> {{ producto.peso_neto }} </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Unidad de venta</th>
+                        <td> {{ producto.unidad_venta }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="container col-sm-12 col-md-8 descripcion row justify-content-start"
         style="font-size: 18px; font-family:Arial, Helvetica, sans-serif;">
         <h3 style="font-size: 32px;"><strong>Descripción</strong></h3>
         <p> {{ producto.descripcion }} </p>
-    </div>
-    <hr>
-    <div class="container col-8 row justify-content-start">
-        <h3>Preguntas</h3>
-        <form class="row pb-3" action="">
-            <div class="col-auto comentario_usuario_boton">
-                <div class="comentario_usuario" action="">
-                    <textarea class="text-break" name="comentario" id="" placeholder="Escribe un comentario..."
-                        cols="40" rows="1"></textarea>
+        </div>
+        <hr>
+        <div class="container col-sm-12 col-md-8 row justify-content-start">
+            <h3>Preguntas</h3>
+            <form class="row pb-3" action="">
+                <div class="col-auto comentario_usuario_boton">
+                    <div class="comentario_usuario" action="">
+                        <textarea class="text-break" name="comentario" id="" placeholder="Escribe un comentario..." cols="40" rows="1"></textarea>
+                    </div>
                 </div>
-            </div>
-            <button class="comentar col-auto btn btn-primary  mx-auto px-auto ">
-                Comentar
-            </button>
-        </form>
-        <div class="pb-5">
-            <h4>Comentarios</h4>
-            <p>Por casualidad tendrás algun producto q me sirva de anclaje?</p>
-            <div class="row justify-content-start">
-                <div class="col-1"><svg class="" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-                        <path fill="#000" fill-opacity=".25" fill-rule="evenodd" d="M0 0h1v11h11v1H0z"></path>
-                    </svg></div>
-                <div class="col-8">
-                    <p class="respuesta pt-1">Hola buenas tardes no vas a tener tanto anclaje. 29/01/2021</p>
-                </div>
-            </div>
-            <p>Hola buenas tardes, se puede aplicar sobre chapa de cinc?</p>
-            <div class="row justify-content-start">
-                <div class="col-1"><svg class="" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-                        <path fill="#000" fill-opacity=".25" fill-rule="evenodd" d="M0 0h1v11h11v1H0z"></path>
-                    </svg></div>
-                <div class="col-10">
-                    <p class="respuesta pt-1">Hola buenas tardes no vas a tener tanto anclaje. 29/01/2021</p>
-                </div>
-            </div>
-            <p>Hola, me podes decir los metros cuadrados que cubre la lata de 30 kilos? Gracias</p>
-            <div class="row justify-content-start">
-                <div class="col-1"><svg class="" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-                        <path fill="#000" fill-opacity=".25" fill-rule="evenodd" d="M0 0h1v11h11v1H0z"></path>
-                    </svg></div>
-                <div class="col-10">
-                    <p class="respuesta pt-1">1 A 1.2 KG X M2 dependiendo de la superficie de aplicación 06/11/2020</p>
-                </div>
-            </div>
-            <p>Hola tenes el Sherwin country Loft texturas de código azo28oac</p>
-            <div class="row justify-content-start">
-                <div class="col-1 "><svg class="" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-                        <path fill="#000" fill-opacity=".25" fill-rule="evenodd" d="M0 0h1v11h11v1H0z"></path>
-                    </svg></div>
-                <div class="col-10">
-                    <p class="respuesta pt-1">Hola no vendemos esa marca Saludos! 12/05/2020</p>
-                </div>
+                <button class="comentar col-auto btn btn-primary  mx-auto px-auto ">
+                    Comentar
+                </button>
+            </form>
+            <div class="pb-5">
+                <h4>Comentarios</h4>
+                    <p>Por casualidad tendrás algun producto q me sirva de anclaje?</p>
+                    <div class="row justify-content-start">
+                    <div class="col-1"><svg class="" xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="#000" fill-opacity=".25" fill-rule="evenodd" d="M0 0h1v11h11v1H0z"></path></svg></div>
+                    <div class="col-8">
+                        <p class="respuesta pt-1">Hola buenas tardes no vas a tener tanto anclaje. 29/01/2021</p>
+                    </div>
+                    </div>
+                    <p>Hola buenas tardes, se puede aplicar sobre chapa de cinc?</p>
+                    <div class="row justify-content-start">
+                    <div class="col-1"><svg class="" xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="#000" fill-opacity=".25" fill-rule="evenodd" d="M0 0h1v11h11v1H0z"></path></svg></div>
+                    <div class="col-10">
+                        <p class="respuesta pt-1">Hola buenas tardes no vas a tener tanto anclaje. 29/01/2021</p>
+                    </div>
+                    </div>
+                        <p>Hola, me podes decir los metros cuadrados que cubre la lata de 30 kilos? Gracias</p>
+                    <div class="row justify-content-start">
+                    <div class="col-1"><svg class="" xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="#000" fill-opacity=".25" fill-rule="evenodd" d="M0 0h1v11h11v1H0z"></path></svg></div>
+                    <div class="col-10">
+                        <p class="respuesta pt-1">1 A 1.2 KG X M2 dependiendo de la superficie de aplicación 06/11/2020</p>
+                    </div>
+                    </div>
+                        <p>Hola tenes el Sherwin country Loft texturas de código azo28oac</p>
+                    <div class="row justify-content-start">
+                    <div class="col-1 "><svg class="" xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="#000" fill-opacity=".25" fill-rule="evenodd" d="M0 0h1v11h11v1H0z"></path></svg></div>
+                    <div class="col-10">
+                        <p class="respuesta pt-1">Hola no vendemos esa marca Saludos! 12/05/2020</p></div>
+                    </div>
             </div>
         </div>
+        
+        
+        
+        
     </div>
+    
+    
+    
 
-
-
-
-</div>
-
-
-
-
-
-
+    
 
 
 
