@@ -17,6 +17,5 @@ urlpatterns = [
     path('blog/', views.Blog.as_view(), name='blog'),
     path('producto/', include('cart.urls', namespace='cart')),
     path('historial/', views.Historial.as_view(), name="historial"),
-    path('carrito/', views.CarritoView.as_view(), name="carrito"),
 
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

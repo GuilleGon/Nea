@@ -1,3 +1,4 @@
+from functools import partial
 from unicodedata import name
 from django.urls import path
 from cart import views
@@ -9,5 +10,12 @@ from django.conf import settings
 app_name = 'cart'
 
 urlpatterns = [
+    path('checkout/', views.Checkout.as_view(), name="checkout"),
     path('<slug>/', views.ProductoDetalle.as_view(), name="producto"),
+    path('', views.CartView.as_view(), name="carrito"),
+    path('incrementar-item/<pk>/', views.IncrementarCantidad.as_view(), name="incrementar"),
+    path('decrementar-item/<pk>/', views.DecrementarCantidad.as_view(), name="decrementar"),
+    path('borrar-item/<pk>/', views.BorrarItem.as_view(), name="borrar"),
+    
+
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

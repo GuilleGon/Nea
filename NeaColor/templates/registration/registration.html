@@ -1,11 +1,17 @@
-{% extends "base.html" %} {% load crispy_forms_tags %} {%block content%}
+{% extends "base.html" %} {% load crispy_forms_tags %} 
+
+{% block head_title %}
+Registro
+{% endblock %}
+
+{%block content%}
 
 <div class="containter">
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body">
-                    <h2>Registro como usuario</h2>
+                    <h2>Registrarse como <a href="{% url 'registroUsuario' %}">Usuario</a> o como <a href="{% url 'registroEmpresa' %}">Empresa</a></h2>
                     <hr>
                     <form action="" method="post" accept-charset="utf-8">
 

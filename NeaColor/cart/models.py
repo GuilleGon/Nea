@@ -10,18 +10,19 @@ from django.db.models.signals import pre_save
 
 
 class Direccion(models.Model):
-    ADDRESS_CHOISES = (
-        ('B', 'Billing'),
-        ('S', 'Shipping')
+    TIPOENTREGA = (
+        ('R', 'Retiro'),
+        ('E', 'Envio')
     )
-    user = models.ForeignKey(User, on_delete=CASCADE)
-    dir1 = models.CharField(max_length=100)
-    dir2 = models.CharField(max_length=100)
-    address_type = models.CharField(max_length=1, choices=ADDRESS_CHOISES)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    direccion = models.CharField(max_length=100)
+    codigoPostal = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=20)
+    tipo_entrega = models.CharField(max_length=1, choices=TIPOENTREGA)
     default = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.dir1}, {self.dir2}, {self.user.codigoPostal}"
+        return f"{self.direccion}, {self.codigoPostal}, {self.user.telefono}"
 
     class Meta:
         verbose_name_plural = 'Direcciones'
@@ -33,7 +34,7 @@ class Producto(models.Model):
     descripcion = models.TextField()
     image = models.ImageField(upload_to='producto_images')
     stock = models.IntegerField()
-    precio = models.FloatField()
+    precio = models.DecimalField(max_digits=7, decimal_places=2, default=0)
     marca = models.CharField(max_length=150)
     modelo = models.CharField(max_length=150)
     peso_neto = models.CharField(max_length=150)
@@ -50,16 +51,25 @@ class Producto(models.Model):
     def get_absolute_url(self):
         return reverse("cart:producto", kwargs={'slug': self.slug})
 
+    def get_precio_crudo(self):
+        return "{:.2f}".format(self.precio)
+
     
 
 class OrderItem(models.Model):
-    orden = models.ForeignKey("Orden", related_name='items', on_delete=models.CASCADE, null=True)
+    order = models.ForeignKey("Orden", related_name='items', on_delete=models.CASCADE, null=True)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return f"{self.cantidad} x {self.producto.nombre}"
+    
+    def total_crudo(self):
+        return self.cantidad * self.producto.precio
 
+    def total(self):
+        precio = self.total_crudo()
+        return "{:.2f}".format(precio)
 
 class Orden(models.Model):
     user = models.ForeignKey(User,blank=True, null=True, on_delete=models.CASCADE)
@@ -67,15 +77,33 @@ class Orden(models.Model):
     fecha_orden = models.DateTimeField(blank=True, null=True)
     ordenado = models.BooleanField(default=False)
 
-    billing = models.ForeignKey(Direccion, related_name='billing_address', blank=True, null=True, on_delete=models.SET_NULL)
-    shipping = models.ForeignKey(Direccion, related_name='shipping_address', blank=True, null=True, on_delete=models.SET_NULL)
-
+    
     def __str__(self):
         return self.reference_number
 
     @property
     def reference_number(self):
-        return f"ORDEN-{self.pk}"
+        return f"ORDER-{self.pk}"
+
+    def get_raw_subtotal(self):
+        total = 0
+        for order_item in self.items.all():
+            total += order_item.total_crudo()
+        return total
+
+    def get_subtotal(self):
+        subtotal = self.get_raw_subtotal()
+        return "{:.2f}".format(subtotal)
+
+    def get_raw_total(self):
+        subtotal = self.get_raw_subtotal()
+        # agregar suma de IGV, Delivery, Resta DESCUENTOS
+        #total = subtotal - discounts + tax + delivery
+        return subtotal
+
+    def get_total(self):
+        total = self.get_raw_total()
+        return "{:.2f}".format(total)
 
 
 
