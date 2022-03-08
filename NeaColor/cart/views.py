@@ -1,8 +1,10 @@
+from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, reverse
 from .models import OrderItem, Producto
 from django.views import generic
 from .utils import get_or_set_order_session
 from .forms import AddToCartForm, checkForm
+from django.conf import settings
 
 class ProductoDetalle(generic.FormView):
     template_name = 'producto.html'
@@ -85,4 +87,11 @@ class Checkout(generic.FormView):
         return context
 
 class MercadoApi(generic.FormView):
-    pass
+    template_name = "mercado-api.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(MercadoApi, self).get_context_data(**kwargs)
+        context['PROD_ACCESS_TOKEN'] = settings.PROD_ACCESS_TOKEN
+        return context
+    
+    #pass
