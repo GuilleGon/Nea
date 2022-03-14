@@ -27,26 +27,74 @@ Inicio
                 <ul class="list-group">
                     <li class="">
                     <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Accesorios Pinturas
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Acrilicos / Tizas
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
                     Aerosoles
                     </li>
                     <li class="">
                     <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                    Esmaltes y Látex
+                    Diluyentes
                     </li>
                     <li class="">
                     <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                    Pinturas Especiales
+                    Escaleras
                     </li>
                     <li class="">
                     <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                    Impermeabilizantes
+                    Esmaltes / Sinteticos
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Lijas y Papeleria
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Para Maderas
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Pinturas Bases
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Pinturas Impermeabilizantes
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Pinturas Piscina
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Pinturas Pisos
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Pinturas Entonadores
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Pinturas Colores
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Pincel y Rodillos
+                    </li>
+                    <li class="">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    TINTA TINTOMETRICO
                     </li>
                 </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="accordion-item">
+<!--<div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
             Línea
@@ -103,39 +151,40 @@ Inicio
                 </ul>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
                 <div class="productos container col-9">
                     <div class="row row-cols-1 row-cols-md-3 g-1">
                         {% for producto in object_list %}
-                          <div class="col">
-                            <div class="card producto">
-                                <a href="{{ producto.get_absolute_url }}" style="text-decoration: none; color: black;">
-                                    <img src="{{ producto.image.url }}" class="img-fluid" alt="" />
-            
-                                    <div class="titulo_producto">
-                                        <h4>
-                                            {{ producto.nombre }}
-                                        </h4>
-                                    </div>
-                                    <div class="stock_content">
-                                        <p class="stock">
-                                            {{ producto.stock }} en stock
-                                        </p>
-                                    </div>
-                                    <div class="oferta">
-                                        <span class="price">${{producto.precio}}</span><span class="price_text">antes</span>
-                                    </div>
-                                    <div class="contado">
-                                        <span class="price">${{producto.precio}}</span><span class="price_text">CONTADO</span>
-                                    </div>
-                                </a>
-                                <button type="button" class="btn btn-success">Agregar al Carrito</button>
-                          </div>
+                            <div class="col">
+                                <div class="card producto">
+                                    <a href="{{ producto.get_absolute_url }}" style="text-decoration: none; color: black;">
+                                        <img src="{{ producto.image.url }}" class="img-fluid" alt="" />
+                
+                                        <div class="titulo_producto">
+                                            <h4>
+                                                {{ producto.nombre }}
+                                            </h4>
+                                        </div>
+                                        <div class="stock_content">
+                                            <p class="stock">
+                                                {{ producto.stock }} en stock
+                                            </p>
+                                        </div>
+                                        <div class="oferta">
+                                            <span class="price">${{producto.precio}}</span><span class="price_text">antes</span>
+                                        </div>
+                                        <div class="contado">
+                                            <span class="price">${{producto.precio}}</span><span class="price_text">CONTADO</span>
+                                        </div>
+                                    </a>
+                                    <button type="button" class="btn btn-success">Agregar al Carrito</button>
+                                </div>
+                            </div>
                         {% endfor %}
-                          <div class="col">
+                         <!-- <div class="col">
                             <div class="card producto">
-                                <img src="imagen/premium.jpg" alt="">
+                                <img src="../producto_images/premium.jpg" alt="">
                                 <div class="titulo_producto">
                                     <h4>
                                        Látex Premium Interior 20lts<br>San Agustín
@@ -159,7 +208,7 @@ Inicio
                           </div>
                           <div class="col">
                             <div class="card producto">
-                                <img src="imagen/plus.jpg" alt="">
+                                <img src="../producto_images/plus.jpg" alt="">
                                 <div class="titulo_producto">
                                     <h4>
                                        Látex Acrílico Plus Interior-Exterior 20lts San Agustín
@@ -182,7 +231,7 @@ Inicio
                             </div>
                           </div><div class="col">
                             <div class="card producto">
-                                <img src="imagen/frentes.jpg" alt="">
+                                <img src="../producto_images/frentes.jpg" alt="">
                                 <div class="titulo_producto">
                                     <h4>
                                        Frente Elastomerico 20lts 
@@ -207,7 +256,7 @@ Inicio
                           </div>
                           <div class="col">
                             <div class="card producto">
-                                <img src="imagen/premium.jpg" alt="">
+                                <img src="../producto_images/premium.jpg" alt="">
                                 <div class="titulo_producto">
                                     <h4>
                                        Látex Premium Interior 20lts<br>San Agustín
@@ -231,7 +280,7 @@ Inicio
                           </div>
                           <div class="col">
                             <div class="card producto">
-                                <img src="imagen/plus.jpg" alt="">
+                                <img src="../producto_images/plus.jpg" alt="">
                                 <div class="titulo_producto">
                                     <h4>
                                        Látex Acrílico Plus Interior-Exterior 20lts San Agustín
@@ -252,11 +301,10 @@ Inicio
                                     <button type="button" class="btn btn-success">Agregar al Carrito</button>
                                 </div>
                             </div>
-                          </div>
-                        </div>
+                          </div> -->
+                    </div>
 
                         {% if is_paginated %}
-                            <div class="container">
                                 <div class="row justify-content-center">
                                     <!--CAMBIO-->
                                     <nav aria-label="Page navigation example">
@@ -275,11 +323,12 @@ Inicio
                                             </li>
                                         {% endif %}
                                         
-                                        {% for i in pagintator.page_range %}
-                                                <li class="page-item {% if page_obj.numbre == i %} active {% endif %}">
+                                        {% for i in paginator.page_range %}
+                                                <li class="page-item {% if page_obj.number == i %} active {% endif %}">
                                                     <a  href="?page={{i}}" class="page-link">{{i}}</a>
                                                 </li>
                                         {% endfor %}
+
                                         {% if page_obj.has_next %}
                                             <li class="page-item">
                                             <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
@@ -297,7 +346,6 @@ Inicio
                                     </nav>
                                     <!--CAMBIO-->
                                 </div>
-                            </div>
                         {% endif %}
                         
                         
