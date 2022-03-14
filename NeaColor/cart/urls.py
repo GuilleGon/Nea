@@ -16,6 +16,7 @@ urlpatterns = [
     path('incrementar-item/<pk>/', views.IncrementarCantidad.as_view(), name="incrementar"),
     path('decrementar-item/<pk>/', views.DecrementarCantidad.as_view(), name="decrementar"),
     path('borrar-item/<pk>/', views.BorrarItem.as_view(), name="borrar"),
+    path('mercado-api/', views.MercadoApi.as_view(), name='mercado-api')
     
 
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

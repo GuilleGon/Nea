@@ -1,8 +1,10 @@
+from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, reverse
 from .models import OrderItem, Producto
 from django.views import generic
 from .utils import get_or_set_order_session
 from .forms import AddToCartForm, checkForm
+
 
 class ProductoDetalle(generic.FormView):
     template_name = 'producto.html'
@@ -84,5 +86,33 @@ class Checkout(generic.FormView):
         context['order'] = get_or_set_order_session(self.request)
         return context
 
+
+
+
+import mercadopago
+
+sdk = mercadopago.SDK("TEST-3413317611199759-031220-e7c6b3a54cd2a2363b04c47f4f46374b-301083843")
+
+preference_data = {
+    "items": [
+        {
+            "id": 1,
+            "title": "Mi producto",
+            "quantity": 1,
+            "unit_price": 75.76,
+        }
+    ]
+}
+
+preference_response = sdk.preference().create(preference_data)
+preference = preference_response["response"]
+
 class MercadoApi(generic.FormView):
-    pass
+    template_name = "mercado-api.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(MercadoApi, self).get_context_data(**kwargs)
+        context[' MERCADO_PAGO_PUBLIC_KEY '] = settings.MERCADO_PAGO_PUBLIC_KEY
+        return context
+    
+    #pass
