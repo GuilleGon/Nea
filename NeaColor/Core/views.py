@@ -10,15 +10,15 @@ from cart.models import Producto
 class Index(generic.ListView):
     template_name = 'index.html'
     queryset = Producto.objects.all().order_by('-id')
-    pagintate_by = 9
+    paginate_by = 3
 
-    """def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context = ['message'] = 'Listado de productos'
+        context ['message'] = 'Listado de productos'
 
         print(context)
 
-        return context"""
+        return context
 
 class Historial(generic.TemplateView):
     template_name = 'historial.html'
