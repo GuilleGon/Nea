@@ -32,6 +32,7 @@ Carrito
                 <th scope="col" class="">imagen</th>
                 <th scope="col" class="">Producto</th>
                 <th scope="col" class="encabezado">Precio /u</th>
+                <th scope="col" class="">Descuento/u</th>
                 <th scope="col" class="encabezado">Cantidad</th>
                 <th scope="col" class="encabezado">Total</th>
             </tr>
@@ -47,6 +48,13 @@ Carrito
                 <td><span>{{item.producto.nombre}}</span></td>
                 <td>
                     <div class="precio container pt-4">${{item.producto.precio}}</div>
+                </td>
+                <td>
+                    {% if item.producto.oferta > 0 %}
+                    <div class="descuento container pt-4">%{{ item.producto.oferta }}</div>
+                    {% else %}
+                    <div class="descuento container pt-4">No</div>
+                    {% endif %}
                 </td>
                 <td>
                     <div class="input-group mb-3" style="max-width: 120px;">

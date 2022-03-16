@@ -65,7 +65,7 @@ class OrderItem(models.Model):
         return f"{self.cantidad} x {self.producto.nombre}"
     
     def total_crudo(self):
-        return self.cantidad * self.producto.precio
+        return self.cantidad * (self.producto.precio - ( self.producto.precio * self.producto.oferta /100))
 
     def total(self):
         precio = self.total_crudo()
