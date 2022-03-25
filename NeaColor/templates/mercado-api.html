@@ -6,7 +6,7 @@ Pago
 {% endblock %}
 {% block extra_head %}
 
-<link rel="stylesheet"  type="text/css"  href="{% static 'css/mercado-api.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/mercado-api.css' %}">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 {% endblock %}
 
@@ -107,27 +107,27 @@ Pago
 <script src="https://sdk.mercadopago.com/js/v2"></script>
 <script type="text/javascript" src="js/index.js" defer></script>
 // SDK MercadoPago.js V2
-<script src="https://sdk.mercadopago.com/js/v2"></script>
+
+<script src="https://sdk.mercadopago.com/js/v2">
 
 
-<script>
-    // Agrega credenciales de SDK
-    const mp = new MercadoPago("TEST-1ec07af6-03cf-4bc7-a2a4-a50ad3d087c7", {
-      locale: "es-AR",
-    });
-  
-    // Inicializa el checkout
-    mp.checkout({
-      preference: {
-        id: "{{ MERCADO_PAGO_PUBLIC_KEY }}",
-      },
-      render: {
-        container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
-        label: "Pagar", // Cambia el texto del botón de pago (opcional)
-      },
-    });
-  </script>
-  
+  // Agrega credenciales de SDK
+  const mp = new MercadoPago("MERCADO_PAGO_PUBLIC_KEY", {
+    locale: "es-AR",
+  });
+
+  // Inicializa el checkout
+  mp.checkout({
+    preference: {
+      id: "{{ order }}",
+    },
+    render: {
+      container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
+      label: "Pagar", // Cambia el texto del botón de pago (opcional)
+    },
+  });
+</script>
+
 {% endblock scripts %}
 
 {% endblock content %}
