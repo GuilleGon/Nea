@@ -10,7 +10,7 @@ from cart.models import Producto
 class Index(generic.ListView):
     template_name = 'index.html'
     queryset = Producto.objects.all().order_by('-id')
-    paginate_by = 3
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
