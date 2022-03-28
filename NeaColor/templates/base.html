@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 </head>
@@ -46,59 +47,51 @@
 
     <div class="site-wrap">
         <header class="site-navbar" role="banner">
-            <div class="site-navbar-top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-6 col-md-8 mb-3 mb-md-0 col-md-4 order-1 order-md-2">
-                            <div>
-                                <a href="{% url 'home' %}">
-                                    <img class="img-fluid" src="{% static 'images/logo.jpg' %}"
-                                        style="max-width: 400px;" />
-                                </a>
-                            </div>
-                        </div>
+            <div class="site-navbar-top bg-dark">
 
-                        <div class="col-6 col-md-4 order-3 order-md-3 text-right">
-                            <div class="site-top-icons">
-                                <div id="menu">
-                                    <ul>
-                                        <li>
+                <div class="container-fluid site-top-icons">
+                    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+                        <div class="container">
+                            <a href="{% url 'home' %}" class="navbar-brand"><img class="img-fluid"  src="{% static 'images/logo.png' %}" style="max-width: 250px;"></a>
+                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNavegacion">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="d-flex justify-content-end">
+                                <div id="MenuNavegacion" class="collapse navbar-collapse">
+                                    
+                                    <ul class="navbar-nav ms-3">
+                                        <li class="nav-item dropdown">
                                             {% if request.user.is_authenticated %}
-                                        <li><a href="#">@{{user.email}}</a>
-                                            <ul>
-                                                <li><a href="#">Perfil</a></li>
-                                                <li><a href="{% url 'cart:carrito' %}">Carrito</a></li>
-                                                <li><a href="{% url 'historial' %}">Historial</a></li>
-                                                <li><a href="{% url 'logout' %}"><span><i
-                                                                class="fas fa-user"></i></span>Cerrar Sesion</a></li>
+                                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                                {{user.email}}
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Mis Datos</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesion</a></li>
                                             </ul>
                                         </li>
-
-                                        {% else %}
-                                        <li><a href="{% url 'login' %}"><span><i
-                                                        class="fas fa-sign-in-alt"></i></span>Iniciar Sesion</a></li>
-                                        <li><a href="{% url 'registroUsuario' %}">o Registrarse</a></li>
-                                        {% endif %}
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'historial' %}">Historial</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'cart:carrito' %}">Carrito</a></li>
+                                        <li>
+                                            {% else %}
+                                            <li><a href="{% url 'login' %}"><span><i
+                                                            class="fas fa-sign-in-alt"></i></span>Iniciar Sesion</a></li>
+                                            <li><a href="{% url 'registroUsuario' %}">o Registrarse</a></li>
+                                            {% endif %}
                                         </li>
                                         <li>
-                                            <a href="{% url 'cart:carrito' %}" class="site-cart">
+                                            <a href="{% url 'cart:carrito' %}" class="nav-link">
                                                 <span><i class="fas fa-shopping-cart"></i></span>
                                                 <span class="count">{{ items | length }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="d-inline-block d-md-none ml-md-0">
-                                            <a href="#" class="site-menu-toggle js-menu-toggle">
-                                                <span><i class="fas fa-bars"></i></span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
+                    </nav>
                 </div>
+
             </div>
             {% include 'navbar.html' %}
             {% if messages %}

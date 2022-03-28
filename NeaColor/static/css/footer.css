@@ -1,0 +1,83 @@
+@font-face{
+    font-family: DelaGothicOne;
+    src: url('DelaGothicOne.ttf') format('truetype');
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.footerdivmain{
+    margin-top: 70px;
+}
+.footerlogo{
+    text-align: center;
+}
+.footerdiv img{
+   height: 50px;
+}
+div .socialesfooterdiv a{
+    text-decoration: none;
+    color: white;
+    font-size: 6px;
+    text-align: center;
+    float: left;
+    margin-right: 15px;
+}
+.instagramfooterdiv:hover{
+    color: #f24da4;
+    font-size: 6.2px;
+}
+.facebookfooterdiv:hover{
+    color: #6377d9;
+    font-size: 6.2px;
+}
+.socialesfooterdiv{
+    overflow: hidden;
+}
+
+@media screen and (max-width: 767px) { 
+   .footerdiv{
+     text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .socialesfooterdiv{
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+@media screen and (max-width: 639px) { 
+
+.footerdiv{
+     text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .socialesfooterdiv{
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+    
+@media screen and (max-width: 320px) { 
+.footerdiv{
+     text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .socialesfooterdiv{
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
