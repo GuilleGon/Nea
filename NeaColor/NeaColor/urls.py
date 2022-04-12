@@ -3,7 +3,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from Core import views
-from cart.models import Producto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,5 +16,6 @@ urlpatterns = [
     path('blog/', views.Blog.as_view(), name='blog'),
     path('producto/', include('cart.urls', namespace='cart')),
     path('historial/', views.Historial.as_view(), name="historial"),
+    path('pagos/', include('pagos.urls', namespace="pagos")),
 
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

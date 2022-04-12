@@ -1,6 +1,3 @@
-import mercadopago
-from django import template
-from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, reverse
 from .models import OrderItem, Producto
 from django.views import generic
@@ -92,27 +89,3 @@ class Checkout(generic.FormView):
         context['order'] = get_or_set_order_session(self.request)
         return context
 
-
-sdk = mercadopago.SDK(settings.MERCADO_PAGO_ACCESS_TOKEN)
-
-
-class MercadoApi(generic.TemplateView):
-    template_name = "mercado-api.html"
-
-    def get_context_data(self, **kwargs):
-        order = {
-            "items": [
-                {
-                    "title": "Mi producto",
-                    "quantity": 1,
-                    "unit_price": 75.76,
-                }
-            ]
-        }
-        preference_response = sdk.preference().create(order)
-
-        context = super(MercadoApi, self).get_context_data(**kwargs)
-        context['order'] = preference_response
-        return context
-
-    # pass

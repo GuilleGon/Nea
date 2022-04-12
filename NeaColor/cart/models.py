@@ -111,12 +111,12 @@ class Orden(models.Model):
 class Pago(models.Model):
     order = models.ForeignKey(Orden, on_delete=CASCADE, related_name="pagos")
     metodo = models.CharField(max_length=20, choices=(
-        ('Paypal', 'Paypal'),
+        ('Tarjeta', 'Paypal'),
 
     ))
     timestamp = models.DateTimeField(auto_now_add=True)
     exitoso = models.BooleanField(default=False)
-    monto = FloatField()
+    monto = FloatField(editable=False)
     raw_response = models.TextField()
      
     def __str__(self):

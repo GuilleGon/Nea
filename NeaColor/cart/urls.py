@@ -11,7 +11,6 @@ app_name = 'cart'
 
 urlpatterns = [
     path('checkout/', views.Checkout.as_view(), name="checkout"),
-    path('mercado-api/', views.MercadoApi.as_view(), name='mercado-api'),
     path('<slug>/', views.ProductoDetalle.as_view(), name="producto"),
     path('', views.CartView.as_view(), name="carrito"),
     path('incrementar-item/<pk>/', views.IncrementarCantidad.as_view(), name="incrementar"),
